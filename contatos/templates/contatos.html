@@ -1,0 +1,81 @@
+{% extends "home.html" %}
+
+{% block container %}
+
+<div class="page-header">
+
+    <div id="main" class="container-fluid">
+        <div id="top" class="row">
+             <div class="col-md-3">
+                  <h2>Contatos</h2>
+             </div>
+
+             <div class="col-md-6">
+                  <div class="input-group h2">
+                       <input name="data[search]" class="form-control" id="search" type="text" placeholder="Pesquisar Contatos">
+                       <span class="input-group-btn">
+                           <button class="btn btn-primary" type="submit">
+                              <span class="glyphicon glyphicon-search"></span>
+                           </button>
+                       </span>
+                  </div>
+             </div>
+
+             <div class="col-md-3">
+                  <a href="novo" class="btn btn-primary pull-right h2">Novo Contato</a>
+             </div>
+
+        </div> <!-- /#top -->
+
+        <hr />
+
+    </div>
+
+    <div id="list" class="row">
+
+        <div class="table-responsive col-md-12">
+            <table class="table table-striped" cellspacing="0" cellpadding="0">
+                <thead>
+                    <tr>
+                        <th class="col-md-1">ID</th>
+                        <th class="col-md-4">Contato</th>
+                        <th class="col-md-4">Bairro</th>
+                        <th class="actions">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    {% for contato in lista %}
+                        <tr>
+
+                            <td>{{ contato.contato_id }}</td>
+                            <td>{{ contato.contato_nome }}</td>
+                            <td>{{ contato.bairro }}</td>
+
+                            <td class="actions">
+                                <a class="btn btn-success btn-xs" href="mostra{{contato.contato_id}}">Visualizar</a>
+                                <a class="btn btn-warning btn-xs" href="edita{{contato.contato_id}}">Editar</a>
+                                <a class="btn btn-danger btn-xs"  href="deleta{{contato.contato_id}}">Excluir</a>
+                            </td>
+
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td></td>
+                            <td>Nao ha contatos cadastrados</td>
+                        </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </div> <!-- /#list -->
+
+    <div id="bottom" class="row">
+
+    </div> <!-- /#bottom -->
+
+</div>  <!-- /#main -->
+
+
+{% endblock %}

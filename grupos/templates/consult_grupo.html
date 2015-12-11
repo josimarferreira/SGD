@@ -1,0 +1,41 @@
+{% extends "home.html" %}
+
+{% block container %}
+
+<div id="main" class="container-fluid">
+
+    <h3 class="page-header">Visualizar Grupo</h3>
+
+    <form action="index.html">
+
+        <div class="row">
+
+            <div class="form-group col-md-4">
+                <label for="campo1">ID Grupo</label>
+                <input type="text" class="form-control" id="idgrupo">
+            </div>
+
+            <div class="form-group col-md-4">
+                <label for="campo2">Grupo</label>
+                <input type="text" class="form-control" id="grupo">
+            </div>
+
+            <div class="form-group col-md-4">
+                <label for="campo3">Campo Três</label>
+                <input type="text" class="form-control" id="campo3">
+            </div>
+
+        </div>
+
+        <hr />
+        <div id="actions" class="row">
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-primary">Salvar</button>
+                <a href="index.html" class="btn btn-default">Cancelar</a>
+            </div>
+        </div>
+    </form>
+
+</div>
+
+{% endblock %}

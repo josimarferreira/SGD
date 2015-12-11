@@ -1,0 +1,37 @@
+{% extends "home.html" %}
+
+{% block container %}
+<div class="page-header">
+
+    <h1>Deletar Contato? ID: {{ contato.contato_id }}</h1>
+
+    <form class="form-horizontal" action="" method="POST">
+
+        {% csrf_token %}
+
+        <p class="table-responsive col-md-12">
+            <p><td class="col-md-6">Nome do Contato:</td>
+            <td class="col-md-6">{{ contato.contato_nome }}</td></p>
+            <p><td class="col-md-6">Data de nascimento:</td>
+            <td class="col-md-6">{{ contato.contato_nascimento }}</td></p>
+            <p><td class="col-md-6">Sexo:</td>
+            <td class="col-md-6">{{ contato.contato_sexo }}</td></p>
+            <p><td class="col-md-6">Estado Civil:</td>
+            <td class="col-md-6">{{ contato.contato_estado_civil }}</td></p>
+            <p><td class="col-md-6">Email:</td>
+            <td class="col-md-6">{{ contato.contato_email }}</td></p>
+            <p><td class="col-md-6">Observações:<td>
+            <td class="col-md-6">{{ contato.contato_observacoes }}</td></p>
+        </tr>
+
+        <div class="forms actions">
+            <button class="btn btn-primary h2" type="submit">Deletar Contato</button>
+        </div>
+
+        <p><a href="/contatos/">Voltar para Listagem</a></p>
+
+    </form>
+
+</div>
+
+{% endblock %}

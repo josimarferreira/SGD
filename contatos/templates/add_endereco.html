@@ -1,0 +1,50 @@
+{% extends "home.html" %}
+
+{% block container %}
+
+<div class="page-header">
+
+    <div>
+        <h1>Cadastro de Endereço</h1>
+    </div>
+
+    <form class="form-horizontal" action="" method="POST">
+
+        <div class="jumbotron">
+
+            <div id="main" class="container-fluid" >
+
+                <div id="top" class="row">
+
+                    {% csrf_token %}
+
+                    <table>
+                        <tbody>
+
+                            {{ form.contato }}.value = contato
+
+                            <td>{{ form }}</td>
+
+                            {% if field.help_text %}
+                                <p class="help-block">field.help_text</p>
+                            {% endif %}
+
+                        </tbody>
+                    </table>
+
+                    <div class="forms actions">
+                        <button class="btn btn-primary pull-righ h2" type="submit">Gravar Endereço</button>
+                        <button class="btn btn-primary pull-righ h2" type="submit">Informar Telefones</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </form>
+
+</div>
+
+{% endblock %}

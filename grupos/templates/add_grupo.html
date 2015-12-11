@@ -1,0 +1,47 @@
+{% extends "home.html" %}
+
+{% block container %}
+
+<div class="page-header">
+
+    <div>
+        <h1>Novo Grupo</h1>
+    </div>
+
+    <form class="form-horizontal" action="" method="POST">
+
+        <div class="jumbotron">
+
+            <div id="main" class="container-fluid" >
+
+                <div id="top" class="row">
+
+                    {% csrf_token %}
+
+                    <table>
+                        <tbody>
+
+                            {{ form.as_p }}
+
+                            {% if field.help_text %}
+                                <p class="help-block">field.help_text</p>
+                            {% endif %}
+
+                        </tbody>
+                    </table>
+
+                    <div class="forms actions">
+                        <button class="btn btn-primary pull-righ type="submit">Criar Grupo</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </form>
+
+</div>
+
+{% endblock %}
