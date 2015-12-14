@@ -1,0 +1,49 @@
+{% extends "home.html" %}
+
+{% block container %}
+
+<div class="page-header">
+
+    <div>
+        <h1>{{ artigo.idartigos }}</h1>
+    </div>
+
+    <form class="form-horizontal" action="" method="POST">
+
+        <div class="jumbotron">
+
+            <div id="main" class="container-fluid" >
+
+                <div id="top" class="row">
+
+                    {% csrf_token %}
+
+                    <table>
+                        <tbody>
+
+                            <td>{{ form }}</td>
+
+                            {% if field.help_text %}
+                                <p class="help-block">field.help_text</p>
+                            {% endif %}
+
+                        </tbody>
+                    </table>
+
+                    <div class="forms actions">
+                        <button class="btn btn-primary h2" type="submit">Gravar Alterações</button>
+                    </div>
+
+                    <p><a href="/artigos/">Voltar para Listagem</a></p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </form>
+
+</div>
+
+{% endblock %}

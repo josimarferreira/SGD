@@ -1,0 +1,29 @@
+{% extends "home.html" %}
+
+{% block container %}
+<div class="page-header">
+
+    <h1>Deletar Artigo? ID: {{ artigo.idartigos }}</h1>
+
+    <form class="form-horizontal" action="" method="POST">
+
+        {% csrf_token %}
+
+        <p class="table-responsive col-md-12">
+            <p><td class="col-md-6">Grupo:</td>
+            <td class="col-md-6">{{ artigo.idgrupo }}</td></p>
+            <p><td class="col-md-6">Descrição:</td>
+            <td class="col-md-6">{{ artigo.descricao }}</td></p>
+        </tr>
+
+        <div class="forms actions">
+            <button class="btn btn-primary h2" type="submit">Deletar Artigo</button>
+        </div>
+
+        <p><a href="/artigos/">Voltar para Listagem</a></p>
+
+    </form>
+
+</div>
+
+{% endblock %}
