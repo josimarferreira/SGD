@@ -1,7 +1,7 @@
 # coding utf-8
 
 from django import forms
-from .models import Contatos, Endereco
+from .models import Contatos
 
 
 class ContatosForm(forms.ModelForm):
@@ -9,8 +9,3 @@ class ContatosForm(forms.ModelForm):
         model = Contatos
         fields = '__all__'
 
-
-class EnderecoForm(forms.Form):
-    class Meta:
-        model = Endereco
-        fields = '__all__'

@@ -8,6 +8,14 @@
     <p class="table-responsive col-md-12">
         <p><td class="col-md-6">Nome do Contato:</td>
         <td class="col-md-6">{{ contato.contato_nome }}</td></p>
+        <p><td class="col-md-6">Endereco:</td>
+        <td class="col-md-6">{{ contato.contato_tipo_logradouro }} {{ contato.contato_logradouro }}, {{ contato.contato_numero }}</td></p>
+        <p><td class="col-md-6">Complemento:</td>
+        <td class="col-md-6">{{ contato.contato_complemento }}
+        <p><td class="col-md-6">Bairro:</td>
+        <td class="col-md-6">{{ contato.contato_bairro }} Cidade: {{ contato.contato_cidade }} - {{ contato.contato_estado }} CEP: {{ contato.contato_cep }}
+        <p><td class="col-md-6">Telefone:</td>
+        <td class="col-md-6">Residencial: {{ contato.contato_telefone_numero }} Celular: {{ contato.telefone_numero1 }} Celular {{ contato.telefone_numero2 }}
         <p><td class="col-md-6">Data de nascimento:</td>
         <td class="col-md-6">{{ contato.contato_nascimento }}</td></p>
         <p><td class="col-md-6">Sexo:</td>

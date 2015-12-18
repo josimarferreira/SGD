@@ -14,26 +14,6 @@ class Contatos(models.Model):
         (u'3', u'Divorciado'),
         (u'4', u'Viúvo'),
     )
-    contato_id = models.AutoField(primary_key=True)
-    contato_nome = models.CharField(max_length=45, verbose_name='Nome')
-    contato_nascimento = models.DateField(verbose_name='Data de Nascimento')
-    contato_sexo = models.CharField(max_length=10, choices=SEXO_CHOICES, verbose_name='Sexo')
-    contato_estado_civil = models.CharField(max_length=10, choices=ESTADO_CIVIL_CHOICES, verbose_name='Estado Civil')
-    #contato_foto = models.ImageField(max_length=255, blank=True, upload_to='contato/%Y', verbose_name='Foto')
-    contato_email = models.EmailField(max_length=255, blank=True, verbose_name='Email')
-    contato_site = models.URLField(max_length=255, blank=True, verbose_name='Site')
-    contato_observacoes = models.TextField(blank=True, verbose_name='Observações')
-    contato_favorito = models.BooleanField(verbose_name='Favorito')
-    def __unicode__(self):
-        return self.contato_nome
-    class Meta:
-        db_table = u'contatos'
-        verbose_name = 'Contato'
-        verbose_name_plural = 'Contatos'
-        ordering = ['contato_nome']
-
-
-class Endereco(models.Model):
     TIPO_LOGRADOURO_CHOICES = (
         (u'rua', u'Rua'),
         (u'avenida', u'Avenida'),
@@ -42,7 +22,7 @@ class Endereco(models.Model):
     BAIRRO_CHOICES = (
         (u'Aerolândia ', u'Aerolândia '),
         (u'Aeroporto ', u'Aeroporto '),
-        (u'José de Alencar (Antigo Alagadiço Novo) ',u'José de Alencar (Antigo Alagadiço Novo) '),
+        (u'José de Alencar (Antigo Alagadiço Novo) ', u'José de Alencar (Antigo Alagadiço Novo) '),
         (u'Aldeota ', u'Aldeota '),
         (u'Alto da Balança ', u'Alto da Balança '),
         (u'Álvaro Weyne ', u'Álvaro Weyne '),
@@ -82,8 +62,8 @@ class Endereco(models.Model):
         (u'Dias Macêdo ', u'Dias Macêdo '),
         (u'Dom Lustosa ', u'Dom Lustosa '),
         (u'Dunas ', u'Dunas '),
-        (u'Edson Queiroz ',u'Edson Queiroz '),
-        (u'Ellery ',u'Ellery '),
+        (u'Edson Queiroz ', u'Edson Queiroz '),
+        (u'Ellery ', u'Ellery '),
         (u'Engenheiro Luciano Cavalcante ', u'Engenheiro Luciano Cavalcante '),
         (u'Farias Brito ', u'Farias Brito '),
         (u'Fátima ', u'Fátima '),
@@ -128,7 +108,7 @@ class Endereco(models.Model):
         (u'Parque Iracema ', u'Parque Iracema '),
         (u'Parque Manibura ', u'Parque Manibura '),
         (u'Parque Santa Maria ', u'Parque Santa Maria '),
-        (u'Parque Santa Rosa ',u'Parque Santa Rosa '),
+        (u'Parque Santa Rosa ', u'Parque Santa Rosa '),
         (u'Parquelândia ', u'Parquelândia '),
         (u'Parreão ', u'Parreão '),
         (u'Passaré ', u'Passaré '),
@@ -145,7 +125,7 @@ class Endereco(models.Model):
         (u'Presidente Kennedy ', u'Presidente Kennedy '),
         (u'Presidente Vargas ', u'Presidente Vargas '),
         (u'Quintino Cunha ', u'Quintino Cunha '),
-        (u'Rodolfo Teófilo ',u'Rodolfo Teófilo '),
+        (u'Rodolfo Teófilo ', u'Rodolfo Teófilo '),
         (u'Sabiaguaba ', u'Sabiaguaba '),
         (u'Salinas ', u'Salinas '),
         (u'São Bento ', u'São Bento '),
@@ -161,40 +141,39 @@ class Endereco(models.Model):
         (u'Vila União ', u'Vila União '),
         (u'Vila Velha ', u'Vila Velha '),
     )
-    endereco_id = models.AutoField(primary_key=True)
-    contato = models.ForeignKey(Contatos)
-    endereco_tipo_logradouro = models.CharField(max_length=10, choices=TIPO_LOGRADOURO_CHOICES, verbose_name='Tipo Logradouro')
-    endereco_logradouro = models.CharField(max_length=80, verbose_name='Logradouro')
-    endereco_numero = models.IntegerField(verbose_name='Número')
-    endereco_complemento = models.CharField(max_length=45, blank=True, verbose_name='Complemento')
-    endereco_bairro = models.CharField(max_length=80, verbose_name='Bairro', choices=BAIRRO_CHOICES)
-    endereco_cidade = models.CharField(max_length=80, default='Fortaleza')
-    endereco_estado = models.CharField(max_length=2, verbose_name='Estado', default='Ceará')
-    endereco_cep = models.CharField(max_length=9, blank=True, verbose_name='CEP')
-
-    def __unicode__(self):
-        return '%s %s, %s, %s, %s - %s' % (self.endereco_tipo_logradouro, self.endereco_logradouro, self.endereco_numero, self.endereco_bairro, self.endereco_cidade, self.endereco_estado)
-
-    class Meta:
-        db_table = u'endereco'
-        verbose_name = 'Endereço'
-        verbose_name_plural = 'Endereços'
-        ordering = ['endereco_bairro']
-
-
-class Telefone(models.Model):
     TELEFONE_TIPO_CHOICES = (
         (u'1', u'Residencial'),
         (u'2', u'Celular'),
         (u'3', u'Comercial'),
     )
-    telefone_id = models.AutoField(primary_key=True)
-    contato = models.ForeignKey(Contatos)
-    telefone_tipo = models.CharField(max_length=15, choices=TELEFONE_TIPO_CHOICES, verbose_name='Tipo')
-    telefone_numero = models.CharField(max_length=13, verbose_name='Número')
+    contato_id = models.AutoField(primary_key=True)
+    contato_nome = models.CharField(max_length=45, verbose_name='Nome')
+    contato_tipo_logradouro = models.CharField(max_length=10, choices=TIPO_LOGRADOURO_CHOICES,
+                                               verbose_name='Tipo Logradouro')
+    contato_logradouro = models.CharField(max_length=80, verbose_name='Logradouro')
+    contato_numero = models.IntegerField(verbose_name='Número')
+    contato_complemento = models.CharField(max_length=45, blank=True, verbose_name='Complemento')
+    contato_bairro = models.CharField(max_length=80, verbose_name='Bairro', choices=BAIRRO_CHOICES)
+    contato_cidade = models.CharField(max_length=80, default='Fortaleza', verbose_name='Cidade')
+    contato_estado = models.CharField(max_length=2, verbose_name='Estado', default='Ceará')
+    contato_cep = models.CharField(max_length=9, blank=True, verbose_name='CEP')
+    contato_telefone_numero = models.CharField(max_length=13, verbose_name='Fone Residencial')
+    contato_telefone_numero1 = models.CharField(max_length=13, verbose_name='Celular')
+    contato_telefone_numero2 = models.CharField(max_length=13, verbose_name='Celular')
+    contato_nascimento = models.DateField(verbose_name='Data de Nascimento')
+    contato_sexo = models.CharField(max_length=10, choices=SEXO_CHOICES, verbose_name='Sexo')
+    contato_estado_civil = models.CharField(max_length=10, choices=ESTADO_CIVIL_CHOICES, verbose_name='Estado Civil')
+    # contato_foto = models.ImageField(max_length=255, blank=True, upload_to='contato/%Y', verbose_name='Foto')
+    contato_email = models.EmailField(max_length=255, blank=True, verbose_name='Email')
+    contato_site = models.URLField(max_length=255, blank=True, verbose_name='Site')
+    contato_observacoes = models.TextField(blank=True, verbose_name='Observações')
+    contato_favorito = models.BooleanField(verbose_name='Favorito')
 
     def __unicode__(self):
-        return self.telefone_numero
+        return self.contato_nome, self.contato_bairro, self.contato_logradouro, self.contato_telefone_numero, self.contato_telefone_numero1, self.contato_telefone_numero2
 
     class Meta:
-        db_table = u'telefone'
+        db_table = u'contatos'
+        verbose_name = 'Contato'
+        verbose_name_plural = 'Contatos'
+        ordering = ['contato_nome']

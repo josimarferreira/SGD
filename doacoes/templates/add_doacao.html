@@ -1,0 +1,65 @@
+{% extends "home.html" %}
+
+{% block container %}
+
+<div class="page-header">
+
+    <div>
+        <h1>Novo Doação</h1>
+    </div>
+
+    <form class="form-horizontal" action="" method="POST">
+
+        <div class="jumbotron">
+
+            <div id="main" class="container-fluid" >
+
+                <div id="top" class="row">
+
+                    <div class="control-group" align="left">
+
+                        <table class="table table-striped" cellspacing="0" cellpadding="0">
+
+                            <thead>
+                                <tr>
+
+                                    <th class="col-md-1">ID</th>
+                                    <th class="col-md-1">Data</th>
+                                    <th class="col-md-6">Doador</th>
+                                    <th class="col-md-2">Status</th>
+
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+
+                                    {% csrf_token %}
+
+                                    <td class="col-md-1">{{ doacoes.doacao_id }}</td>
+                                    <td class="col-md-1">{{ doacoes.doacao_data }}</td>
+                                    <td class="col-md-6">{{ doacoes.doacao_doador }}</td>
+                                    <td class="col-md-2">{{ doacoes.doacao_status }}</td>
+
+                                </tr>
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                    <div class="forms actions">
+                        <button class="btn btn-primary h2" type="submit">Salvar Doação</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </form>
+
+</div>
+
+{% endblock %}

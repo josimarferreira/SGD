@@ -2,7 +2,7 @@
 
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
-from .forms import ContatosForm, EnderecoForm
+from .forms import ContatosForm
 from .models import Contatos
 
 
@@ -50,13 +50,3 @@ def DeletaContato(request, nr_contato):
     else:
         return render_to_response("deletar.html", {'contato': contato}, RequestContext(request))
 
-
-def AdicionaEndereco(request, nr_contato):
-    if request.method == 'POST':
-        form = EnderecoForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return render_to_response('salvo.html', {})
-    else:
-        form = EnderecoForm()
-    return render_to_response('add_endereco.html', {'form': form}, context_instance=RequestContext(request))

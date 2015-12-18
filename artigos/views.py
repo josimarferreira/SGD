@@ -3,8 +3,8 @@ from django.template import RequestContext
 
 from django.views.generic import TemplateView, ListView
 from django.shortcuts import render, redirect, get_object_or_404, render_to_response
-from artigos.forms import ArtigosForm
-from artigos.models import Artigos
+from .forms import ArtigosForm
+from .models import Artigos
 
 
 class ListaArtigos(ListView):
